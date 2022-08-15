@@ -1,9 +1,9 @@
-import './App.css';
+// import './styles/Main.less';
 
 function App() {
   return (
-    <div className="App">
-      <h2>hello cucu</h2>
+    <div className="app">
+      <h2 className="app_text">hello cucu</h2>
     </div>
   );
 }
