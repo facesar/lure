@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lure/static/css/main.964fdded.css",
+    "main.js": "/lure/static/js/main.00dad560.js",
+    "index.html": "/lure/index.html",
+    "main.964fdded.css.map": "/lure/static/css/main.964fdded.css.map",
+    "main.00dad560.js.map": "/lure/static/js/main.00dad560.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.964fdded.css",
+    "static/js/main.00dad560.js"
+  ]
+}
