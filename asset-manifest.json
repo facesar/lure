@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lure/static/css/main.964fdded.css",
-    "main.js": "/lure/static/js/main.00dad560.js",
+    "main.css": "/lure/static/css/main.6eb87717.css",
+    "main.js": "/lure/static/js/main.8cab3a60.js",
     "index.html": "/lure/index.html",
-    "main.964fdded.css.map": "/lure/static/css/main.964fdded.css.map",
-    "main.00dad560.js.map": "/lure/static/js/main.00dad560.js.map"
+    "main.6eb87717.css.map": "/lure/static/css/main.6eb87717.css.map",
+    "main.8cab3a60.js.map": "/lure/static/js/main.8cab3a60.js.map"
   },
   "entrypoints": [
-    "static/css/main.964fdded.css",
-    "static/js/main.00dad560.js"
+    "static/css/main.6eb87717.css",
+    "static/js/main.8cab3a60.js"
   ]
 }
