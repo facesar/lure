@@ -3,7 +3,7 @@ import { createUseStyles } from 'react-jss';
 
 const useStyles = createUseStyles({
     title: {
-        color: 'red',
+        color: 'violet',
         fontSize: '4rem',
     }
 })
