@@ -1,16 +1,24 @@
 import { JssProvider } from 'react-jss';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
-import Title from './components/Title';
+// Components 
+import CocoOne from './app/CocoOne';
+import CocoTree from './app/CocoTree';
+import Home from './app/Home';
 
 const generateId = (rule) => `${rule.key}`; 
 
 function App() {
+
+  const location = useLocation();
+
   return (
     <JssProvider generateId={generateId}>
-      <div className="app">
-        <h2 className="app_text">hello cucu</h2>
-        <Title />
-      </div>
+      <Routes location={location} key={location.pathname}>
+        <Route index element={<Home />}/>
+        <Route path='/coco1' element={<CocoOne />}/>
+        <Route path='/coco3' element={<CocoTree />}/>
+      </Routes>
     </JssProvider>
   );
 }
