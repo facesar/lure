@@ -1,15 +1,11 @@
-const initialState = [
-    {
-        id: 1,
-        title: 'hello',
-        content: 'coco'
+const initialState = {
+    one: {
+        posts: [],
+        status: 'idle',
+        error: null
     },
-    {
-        id: 2,
-        title: 'sorry',
-        content: 'mono'
-    },
-];
+    id: 1
+};
 
 
 export default initialState;

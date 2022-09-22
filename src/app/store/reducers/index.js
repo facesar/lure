@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import PostsSlice from "../features/post/PostsSlice";
+import CryptoSLice from "../features/crypto/CryptoSlice";
 
 const reducers = combineReducers({
-    POSTS: PostsSlice,
+    CRYPTO: CryptoSLice,
 });
 
 export default reducers;
