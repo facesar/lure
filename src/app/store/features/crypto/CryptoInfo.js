@@ -12,7 +12,12 @@ const CryptoInfo = () => {
     const [id, setId] = useState('');
     const [name, setName] = useState('');
 
-    const ref = useRef()
+    const ref = useRef(name);
+
+
+    useEffect(() => {
+      ref.current = name
+    }, [name])
 
     const onChangeId = (e) => {
       setId(e.target.value)
@@ -20,7 +25,7 @@ const CryptoInfo = () => {
 
     const onChangeName = (e) => {
       setName(e.target.value);
-      ref.current.focus();
+      console.log(ref.current)
     }
 
     useEffect(() => {
@@ -47,8 +52,8 @@ const CryptoInfo = () => {
   return (
     <React.Fragment>
       <h1>crypto</h1>
-      <input ref={ref} type="text" value={name} onChange={(e) => onChangeName(e)}/>
-      <input type="text" placeholder='0' value={id} onChange={(e) => onChangeId(e)}/>
+      <input ref={ref} type="text" onChange={(e) => onChangeName(e)}/>
+      <input ref={ref} type="text" placeholder='0' value={id} onChange={(e) => onChangeId(e)}/>
       <div>
         <p>
         {
