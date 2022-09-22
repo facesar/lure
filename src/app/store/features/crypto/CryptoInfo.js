@@ -25,7 +25,6 @@ const CryptoInfo = () => {
 
     const onChangeName = (e) => {
       setName(e.target.value);
-      console.log(ref.current)
     }
 
     useEffect(() => {
