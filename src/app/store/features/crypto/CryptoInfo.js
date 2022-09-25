@@ -36,14 +36,50 @@ const CryptoInfo = () => {
 
     let content;
     let nams;
+
+    let crypList;
+
+    let coc;
         
     if (status === 'loading') {
       content = <span>loading ...</span>;
     } else if (status === 'succeded') {
+
+      crypList = Object.keys(crypto.rates);
+
       let et = crypto.rates.eth.value;
       nams = crypto.rates[name];
-      let  co = crypto.rates.eth
+      let  co = crypto.rates.eth;
+
+      if (name.includes('x')) {
+        coc = crypList.filter((wor) => wor.includes('x')).map((d, index) => {
+          return (
+            <p key={index}>{d}</p>
+          )
+        })
+      } else if (name.includes('b')) {
+        coc = crypList.filter((wor) => wor.includes('b')).map((d, index) => {
+          return (
+            <p key={index}>{d}</p>
+          )
+        })
+      } else if (name.includes('t')) {
+        coc = crypList.filter((wor) => wor.includes('t')).map((d, index) => {
+          return (
+            <p key={index}>{d}</p>
+          )
+        })
+      }
+      
+
+      // coc = name.includes('t') ? crypList.filter((wor) => wor.includes('t')).map((d, index) => {
+      //   return (
+      //     <p key={index}>{d}</p>
+      //   )
+      // }) : null
+
       content = <span>{co.name} { !id == 0 ? et * id : et }</span>
+
     } else if (status === 'failed') {
       content = <span>{error.message}</span>;
     }
@@ -64,6 +100,11 @@ const CryptoInfo = () => {
           nams ? <strong>{nams.name} {!id == 0 ? nams.value * id : nams.value} { nams.type }</strong> : null
         }
         </p>
+      </div>
+      <div>
+        {
+          coc
+        }
       </div>
     </React.Fragment>
   )
