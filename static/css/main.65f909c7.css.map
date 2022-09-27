@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.65f909c7.css","mappings":"AAAA,mBACE,iBACF,CACA,wBACE,aACF,CAEA,uBACE,qBAAsB,CAEtB,iBAAkB,CADlB,SAEF","sources":["styles/index.module.css"],"sourcesContent":[".app {\n  text-align: center; \n}\n.app_text {\n  color: aquamarine; \n}\n\n.article {\n  border: 2px solid gray;\n  width: 50%;\n  text-align: center;\n}\n"],"names":[],"sourceRoot":""}
