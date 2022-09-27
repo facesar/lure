@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
-// import './Main.scss';
+// import './styles/Main.scss';
 import App from './App';
 
 import { HashRouter } from 'react-router-dom';

@@ -5,9 +5,6 @@ import Loading from '../components/Loading';
 
 import Crypto from '../components/Crypto';
 
-
-import '../Main.scss';
-
 const Home = () => {
 
   const [spinner, setSpinner] = useState(true);

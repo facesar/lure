@@ -24,7 +24,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build:sass": "node-sass src/Main.scss src/styles/index.css",
+    "build:sass": "node-sass src/styles/Main.scss src/styles/index.css",
     "start": "react-scripts start",
     "build": "npm run build:sass && react-scripts build",
     "test": "react-scripts test",

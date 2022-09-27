@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.8e518540.css","mappings":"AAAA,KACI,kBACA,UACI","sources":["Main.scss"],"sourcesContent":[".app {\n    text-align: center;\n    &_text {\n        color: aquamarine;\n    }\n}"],"names":[],"sourceRoot":""}
