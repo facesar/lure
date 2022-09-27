@@ -4,107 +4,87 @@ import { selectorCrypto, getInfoCrypto, selectorLoadingCrypto, selectorErrCrypto
 
 const CryptoInfo = () => {
 
-    const crypto = useSelector(selectorCrypto);
-    const status = useSelector(selectorLoadingCrypto);
-    const error = useSelector(selectorErrCrypto);
-    const dispatch = useDispatch();
+  let content;
+  let nams;
+  let crypList;
 
-    const [id, setId] = useState('');
-    const [name, setName] = useState('');
+  const crypto = useSelector(selectorCrypto);
+  const status = useSelector(selectorLoadingCrypto);
+  const error = useSelector(selectorErrCrypto);
+  const dispatch = useDispatch();
 
-    const ref = useRef(name);
+  const [val, setVal] = useState('');
+  const [name, setName] = useState('');
+
+  const ref = useRef(name);
 
 
-    useEffect(() => {
-      ref.current = name
-    }, [name])
+  useEffect(() => {
+    ref.current = name
+  }, [name])
 
-    const onChangeId = (e) => {
-      setId(e.target.value)
+  const onChangeVal = (e) => {
+    setVal(e.target.value)
+  }
+
+  const onChangeName = (e) => {
+    setName(e.target.value);
+  }
+
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(getInfoCrypto())
     }
-
-    const onChangeName = (e) => {
-      setName(e.target.value);
-    }
-
-    useEffect(() => {
-        if (status === 'idle') {
-          dispatch(getInfoCrypto())
-        }
-    }, [status, dispatch])
+  }, [status, dispatch])
 
 
-    let content;
-    let nams;
-
-    let crypList;
-
-    let coc;
         
-    if (status === 'loading') {
-      content = <span>loading ...</span>;
-    } else if (status === 'succeded') {
+  if (status === 'loading') {
+    content = <span>loading ...</span>;
+  } else if (status === 'succeded') {
+    crypList = Object.keys(crypto.rates);
 
-      crypList = Object.keys(crypto.rates);
+    nams = crypto.rates[name];
 
-      let et = crypto.rates.eth.value;
-      nams = crypto.rates[name];
-      let  co = crypto.rates.eth;
-
-      if (name.includes('x')) {
-        coc = crypList.filter((wor) => wor.includes('x')).map((d, index) => {
-          return (
-            <p key={index}>{d}</p>
-          )
-        })
-      } else if (name.includes('b')) {
-        coc = crypList.filter((wor) => wor.includes('b')).map((d, index) => {
-          return (
-            <p key={index}>{d}</p>
-          )
-        })
-      } else if (name.includes('t')) {
-        coc = crypList.filter((wor) => wor.includes('t')).map((d, index) => {
-          return (
-            <p key={index}>{d}</p>
-          )
-        })
-      }
-      
-
-      // coc = name.includes('t') ? crypList.filter((wor) => wor.includes('t')).map((d, index) => {
-      //   return (
-      //     <p key={index}>{d}</p>
-      //   )
-      // }) : null
-
-      content = <span>{co.name} { !id == 0 ? et * id : et }</span>
-
-    } else if (status === 'failed') {
-      content = <span>{error.message}</span>;
+    if (name.includes('x')) {
+      content = crypList.filter((wor) => wor.includes('x')).map((d, index) => {
+        return (
+          <p key={index}>{d}</p>
+        )
+      })
+    } else if (name.includes('b')) {
+      content = crypList.filter((wor) => wor.includes('b')).map((d, index) => {
+        return (
+          <p key={index}>{d}</p>
+        )
+      })
+    } else if (name.includes('t')) {
+      content = crypList.filter((wor) => wor.includes('t')).map((d, index) => {
+        return (
+          <p key={index}>{d}</p>
+        )
+      })
     }
+  } else if (status === 'failed') {
+    content = <span>{error.message}</span>;
+  }
 
   return (
     <React.Fragment>
       <h1>crypto</h1>
       <input ref={ref} type="text" onChange={(e) => onChangeName(e)}/>
-      <input ref={ref} type="text" placeholder='0' value={id} onChange={(e) => onChangeId(e)}/>
+      <input ref={ref} type="text" placeholder='0' value={val} onChange={(e) => onChangeVal(e)}/>
       <div>
-        <p>
+        <div>
         {
           content
         }
-        </p>
+        </div>
         <p>
         {
-          nams ? <strong>{nams.name} {!id == 0 ? nams.value * id : nams.value} { nams.type }</strong> : null
+          nams ? <strong>{nams.name} {!val == 0 ? nams.value * val : nams.value} { nams.type }</strong> : null
         }
         </p>
-      </div>
-      <div>
-        {
-          coc
-        }
       </div>
     </React.Fragment>
   )
