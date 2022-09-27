@@ -1,1 +1,1 @@
-{"version":3,"file":"static/css/main.c8649322.css","mappings":"AAAA,KAEI,cADA,iBACA","sources":["styles/Main.scss"],"sourcesContent":[".app {\n    text-align: center;\n    color: antiquewhite;\n}"],"names":[],"sourceRoot":""}
+{"version":3,"file":"static/css/main.c8649322.css","mappings":"AAAA,KAEE,aAAmB,CADnB,iBACqB","sources":["styles/index.css"],"sourcesContent":[".app {\n  text-align: center;\n  color: antiquewhite; }\n"],"names":[],"sourceRoot":""}
