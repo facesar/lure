@@ -8,7 +8,7 @@ export const getInfoCrypto = createAsyncThunk(
     async () => {
         try {
             const response = await axios.get(`https://api.coingecko.com/api/v3/exchange_rates`);
-            console.log(response.data); 
+            // console.log(response.data); 
             return response.data;
         } catch (error) {
             return error.data

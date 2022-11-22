@@ -1,3 +1,26 @@
-.app {
-  text-align: center;
-  color: aqua; }
+@import url(~normalize.css);
+:root {
+  --font_content: 10px;
+  --font_body: 16px;
+  --backgroun_body: #F3F5FA;
+  --color_title: red; }
+
+*::after, *::before {
+  box-sizing: border-box;
+  overflow: hidden; }
+
+html {
+  font-size: var(--font_content);
+  margin: 0;
+  padding: 0; }
+
+body {
+  overflow: hidden;
+  font-size: var(--font_body);
+  background-color: var(--backgroun_body); }
+
+#root {
+  margin: 0;
+  padding: 0;
+  padding-left: 2.7rem;
+  padding-right: 7.5rem; }
