@@ -66,7 +66,6 @@ export default class TestMenu extends Component {
 
   changeFillSvg(fil) {
     this.setState((prev) => {
-      console.log(fil);
       return {
         fill: prev.fill = fil,
       }
