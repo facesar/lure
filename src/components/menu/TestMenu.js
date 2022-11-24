@@ -6,9 +6,9 @@ import { createUseStyles } from "react-jss";
 
 
 const useStyles = createUseStyles((theme) => ({
-  myTitle: {
-    color: theme.bgGreen
-  },
+  myTitle: (props) => ({
+    color: props.click ? theme.bgDialy : theme.bgGreen
+  }),
   icon: (props) => ({
     fill: props.fill,
     width: "4rem",
@@ -16,12 +16,12 @@ const useStyles = createUseStyles((theme) => ({
   })
 }));
 
-const Svg = ({img, ...props}) => {
+const Svg = ({img, changeFill, ...props}) => {
   const classes = useStyles(props)
 
   return (
     <React.Fragment>
-      <svg className={classes.icon}>{img}</svg>
+      <svg onClick={() => changeFill()} className={classes.icon}>{img}</svg>
     </React.Fragment>
   )
 }
@@ -39,22 +39,54 @@ export default class TestMenu extends Component {
   static propTypes = {
     fill: PropTypes.string,
     title: PropTypes.string,
-    img: PropTypes.object
+    img: PropTypes.object,
+    click: PropTypes.bool,
+    fillChange: PropTypes.func,
   }
 
   constructor(props) {
     super(props)
+    this.state = {
+      uname: false,
+      fill: 0,
+      click: false,
+    }
+    this.changeName = this.changeName.bind(this);
+    this.changeFillSvg = this.changeFillSvg.bind(this);
   }
 
+  changeName() {
+    this.setState((prev) =>{
+      return {
+        uname: prev.uname = !prev.uname,
+        click: prev.click = !prev.click,
+      }
+    })
+  }
+
+  changeFillSvg(fil) {
+    this.setState((prev) => {
+      console.log(fil);
+      return {
+        fill: prev.fill = fil,
+      }
+    })
+  }
+
+
   render() {
+    const {uname, fill, click} = this.state;
     return (
       <React.Fragment>
-        <Title title="menu"/>
+        <Title click={click} title="menu"/>
+        <p>{uname ? "violet" : "green"}</p>
+        <button onClick={() => this.changeName()}>change name toggle</button>
+        
         <ul>
           {
             DatasMenuTwo.map((data) => 
               <li key={data.id}>
-                <span><Svg fill="red" img={data.img}/></span>
+                <span><Svg changeFill={() => this.changeFillSvg(data.id)} fill={fill === data.id ? "green" : "red"} img={data.img}/></span>
                 {data.name}
                 <span><svg>{data.Ellipse}</svg></span>
               </li>
